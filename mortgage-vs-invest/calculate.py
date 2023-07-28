@@ -44,10 +44,17 @@ def get_money_moves_vars():
     vars = dict()
     vars["money_amount"] = int(input("\nhow much money do you currently have?\n"))
     vars["invest_rate"] = float(input("\nwhat interest will you get on your money in percent?\n"))
+<<<<<<< HEAD
     vars["loan_amount"] = int(input("\nwhat is the loan amount?\n"))
     vars["loan_rate"] = float(input("\nwhat is the loan interest rate in percent?\n"))
     vars["loan_years"] = int(input("\nhow many years is your loan?\n"))
     vars["salary"] = int(input("\nwhat is your salary?\n"))
+=======
+    vars["monthly_money_available"] = int(input("\nhow much money do you have available per month?\n"))
+    vars["loan_amount"] = int(input("\nwhat is the loan amount?\n"))
+    vars["loan_rate"] = float(input("\nwhat is the loan interest rate in percent?\n"))
+    vars["loan_years"] = int(input("\nhow many years is your loan?\n"))
+>>>>>>> b7893c0 (calculate how much investment becomes after x years)
     return vars
 
 def test_money_moves_vars():
@@ -59,12 +66,20 @@ def test_money_moves_vars():
     vars["loan_rate"] = 5.0
     vars["loan_years"] = 30
     vars["home_gain_rate"] = 5.0
+<<<<<<< HEAD
     vars["salary"] = 120000
+=======
+>>>>>>> b7893c0 (calculate how much investment becomes after x years)
     return vars
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     #vars = get_money_moves_vars()
     vars = test_money_moves_vars()
+=======
+    vars = get_money_moves_vars()
+    #vars = test_money_moves_vars()
+>>>>>>> b7893c0 (calculate how much investment becomes after x years)
     my_money = money_moves(**vars)
     my_money.simulate_all_months()
