@@ -66,20 +66,11 @@ def test_money_moves_vars():
     vars["loan_rate"] = 5.0
     vars["loan_years"] = 30
     vars["home_gain_rate"] = 5.0
-<<<<<<< HEAD
-    vars["salary"] = 120000
-=======
->>>>>>> b7893c0 (calculate how much investment becomes after x years)
     return vars
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    #vars = get_money_moves_vars()
-    vars = test_money_moves_vars()
-=======
     vars = get_money_moves_vars()
     #vars = test_money_moves_vars()
->>>>>>> b7893c0 (calculate how much investment becomes after x years)
     my_money = money_moves(**vars)
     my_money.simulate_all_months()
