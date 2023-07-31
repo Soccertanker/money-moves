@@ -9,8 +9,9 @@ class money_moves:
         self.invest_rate = kargs["invest_rate"] / 100.0
         self.monthly_money_available = kargs["salary_available"] / 12.0
         self.home_price = kargs["home_price"]
-        self.down_payment = kargs["down_payment"] / 100.0
-        self.loan_amount = self.home_price - (self.home_price * self.down_payment)
+        self.down_payment_amount = self.home_price * (kargs["down_payment"] / 100.0)
+        self.loan_amount = self.home_price - self.down_payment_amount
+        print(f'loan amount = {self.loan_amount}')
         self.loan_rate = kargs["loan_rate"] / 100.0
         self.loan_months = kargs["loan_years"] * 12
 
@@ -40,7 +41,7 @@ class money_moves:
 
     def simulate_all_months(self):
         monthly_invest_rate = self.invest_rate / 12
-        curr_money_available = self.initial_money_available - self.loan_amount
+        curr_money_available = self.initial_money_available - self.down_payment_amount
         for month in range(1, self.loan_months + 1):
             curr_money_available += curr_money_available * monthly_invest_rate
             # Right now, assume we want to add all monthly available money to savings
@@ -66,11 +67,11 @@ def get_money_moves_vars():
 def test_money_moves_vars():
     vars = dict()
     vars["initial_money_available"] = 550000
-    vars["invest_rate"] = 6.0
+    vars["invest_rate"] = 7.0
     vars["salary_available"] = 70000
     vars["loan_rate"] = 6.875
     vars["loan_years"] = 30
-    vars["down_payment"] = 30
+    vars["down_payment"] = 20
     vars["home_price"] = 625000
     vars["property_tax_rate"] = 1.21
     vars["home_gain_rate"] = 4.5
