@@ -1,6 +1,23 @@
 #import pdb; pdb.set_trace()
 import argparse
 
+class monthly_money:
+    def __init__(self,
+            monthly_money_available,
+            principal_remaining,
+            loan_amount,
+            loan_rate,
+            loan_months,
+            ):
+        self.money_available = monthly_money_available
+        self.init_calculated_monthly_money(principal_remaining, loan_amount, loan_rate, loan_months)
+
+
+    def init_calculated_monthly_money(self, principal_remaining, loan_amount, loan_rate, loan_months):
+        one_plus_i_pow_n = pow(1 + loan_rate, loan_months)
+        self.mortgage_payment = loan_amount * (loan_rate * one_plus_i_pow_n) / (one_plus_i_pow_n - 1)
+        self.home_payment = monthly_mortgage_payment + self.additional_monthly_payments
+
 
 class money_moves:
 
@@ -71,7 +88,7 @@ def test_money_moves_vars():
     vars["salary_available"] = 70000
     vars["loan_rate"] = 6.875
     vars["loan_years"] = 30
-    vars["down_payment"] = 20
+    vars["down_payment"] = 50
     vars["home_price"] = 625000
     vars["property_tax_rate"] = 1.21
     vars["home_gain_rate"] = 4.5
